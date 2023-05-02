@@ -1,50 +1,36 @@
 body, html {
     height: 100%;
+    margin: 0;
 }
-  
-.bg { 
-    background-image: url("images/ryan-plomp-jvoZ-Aux9aw-unsplash.jpg");
-    height: 100%; 
-    width: 100%;
-    background-repeat: no-repeat;
+
+* {
+    box-sizing: content-box;
+}
+
+.bg-image {
+    height: 120%; 
     background-position: center;
-    background-attachment: fixed; 
-    background-size: 50% 100%;
-}
-
-#scroll-container {
-    height: 900px;
-    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
   
-#scroll-text {
-    height: 100%;
+.img1 { background-image: url("images/taylor-smith-aDZ5YIuedQg-unsplash.jpg"); }
+.img2 { background-image: url("images/ryan-plomp-bySPt2lySzg-unsplash.jpg"); }
+.img3 { background-image: url("images/ryan-plomp-jvoZ-Aux9aw-unsplash.jpg"); }
+
+.bg-text {
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4); 
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    border: 10px solid #f1f1f1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 500px;
+    padding: 10px;
     text-align: center;
-    font-size: 100px;
-    
-    -moz-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-    
-    -moz-animation: my-animation 10s linear infinite;
-    -webkit-animation: my-animation 10s linear infinite;
-    animation: my-animation 10s linear infinite;
-}
-
-@-webkit-keyframes my-animation {
-    from { -webkit-transform: translateY(100%); }
-    to { -webkit-transform: translateY(-100%); }
-}
-  
-@keyframes my-animation {
-    from {
-      -moz-transform: translateY(100%);
-      -webkit-transform: translateY(100%);
-      transform: translateY(100%);
-    }
-    to {
-      -moz-transform: translateY(-100%);
-      -webkit-transform: translateY(-100%);
-      transform: translateY(-100%);
-    }
 }
