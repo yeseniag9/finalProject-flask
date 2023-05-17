@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="bg-img" style="background-image: url('../../static/images/footprints.jpg')">
+    <div class="row align-items-center" style="height: 100vh;">
+        <aside class="mx-auto col-10 col-md-8 col-lg-6">
+            <h2 class="pb-3 text-white">Login</h2>    
+            {% include 'forms.html' %} 
+        </aside>
+    </div>
+</main>
+{% endblock %}

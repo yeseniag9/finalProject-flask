@@ -48,26 +48,26 @@ class User(db.Model, UserMixin):
     def __repr__(self): 
         return f'{self.first_name} {self.last_name} has been added to the database.'
     
-class UserSchema(ma.Schema):
-    class Meta:
-        fields = ['id', 'first_name', 'last_name', 'password', 'email', 'token', 'g_auth_verify']
+# class UserSchema(ma.Schema):
+#    class Meta:
+#        fields = ['id', 'first_name', 'last_name', 'password', 'email', 'token', 'g_auth_verify']
 
-user_schema = UserSchema()
-users_schema = UserSchema(many = True)
+# user_schema = UserSchema()
+# users_schema = UserSchema(many = True)
     
 class Sneaker(db.Model):
     id =  db.Column(db.String, primary_key = True)
     name = db.Column(db.String(150))
     date = db.Column(db.String(20))
-    colorway = db.Column(db.String(150))
+    color = db.Column(db.String(150))
     size = db.Column(db.String(10))
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self, name, date, colorway, size, user_token, id=''):
+    def __init__(self, name, date, color, size, user_token, id=''):
         self.id = self.set_id()
         self.name = name
         self.date = date
-        self.colorway = colorway
+        self.color = color
         self.size = size
         self.user_token = user_token
 
@@ -79,7 +79,7 @@ class Sneaker(db.Model):
 
 class SneakerSchema(ma.Schema):
     class Meta:
-        fields = ['id', 'name', 'date', 'colorway', 'size', 'user_token']
+        fields = ['id', 'name', 'date', 'color', 'size', 'user_token']
 
 sneaker_schema = SneakerSchema() 
 sneakers_schema = SneakerSchema(many = True)
