@@ -58,16 +58,16 @@ class User(db.Model, UserMixin):
 class Sneaker(db.Model):
     id =  db.Column(db.String, primary_key = True)
     name = db.Column(db.String(150))
+    nickname = db.Column(db.String(150))
     date = db.Column(db.String(20))
-    color = db.Column(db.String(150))
     size = db.Column(db.String(10))
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self, name, date, color, size, user_token, id=''):
+    def __init__(self, name, nickname, date, size, user_token, id=''):
         self.id = self.set_id()
         self.name = name
+        self.nickname = nickname
         self.date = date
-        self.color = color
         self.size = size
         self.user_token = user_token
 
@@ -79,7 +79,7 @@ class Sneaker(db.Model):
 
 class SneakerSchema(ma.Schema):
     class Meta:
-        fields = ['id', 'name', 'date', 'color', 'size', 'user_token']
+        fields = ['id', 'name', 'nickname', 'date', 'size', 'user_token']
 
 sneaker_schema = SneakerSchema() 
 sneakers_schema = SneakerSchema(many = True)

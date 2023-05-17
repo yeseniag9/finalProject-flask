@@ -8,14 +8,14 @@ api = Blueprint('api', __name__, url_prefix='/api')
 @token_required 
 def create_sneaker(current_user_token):
     name = request.json['name']
-    date = request.json['date'] 
-    color = request.json['color']
+    nickname = request.json['nickname'] 
+    date = request.json['date']
     size = request.json['size']
     user_token = current_user_token.token
 
     print(f'Token: {current_user_token.token}')
 
-    sneaker = Sneaker(name, date, color, size, user_token = user_token)
+    sneaker = Sneaker(name, nickname, date, size, user_token = user_token)
 
     db.session.add(sneaker)
     db.session.commit() 
@@ -43,8 +43,8 @@ def get_single_sneaker(current_user_token, id):
 def update_sneaker(current_user_token, id):
     sneaker = Sneaker.query.get(id)
     sneaker.name = request.json['name']
+    sneaker.nickname = request.json['nickname']
     sneaker.date = request.json['date']
-    sneaker.way = request.json['color']
     sneaker.size = request.json['size']
     sneaker.user_token = current_user_token.token
 
